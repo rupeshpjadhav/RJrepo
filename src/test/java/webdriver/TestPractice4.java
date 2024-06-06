@@ -15,6 +15,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
@@ -34,6 +35,7 @@ public class TestPractice4 {
 		WebElement selectElement = driver.findElement(By.xpath("//button[normalize-space()='Copy Text']"));
 		js.executeScript("arguments[0].scrollIntoView();", selectElement);
 		
+		// to double click
 		WebElement input1 = driver.findElement(By.xpath("//input[@id='field1']"));
 		input1.clear();
 		input1.sendKeys("Welcome everyone");
@@ -55,9 +57,17 @@ public class TestPractice4 {
 			System.out.println("Test failed");
 		}
 
-
+        //drag and drop
 		
-
+		WebElement ScrollElement = driver.findElement(By.xpath("//h2[normalize-space()='Drag and Drop']"));
+		js.executeScript("arguments[0].scrollIntoView();", ScrollElement);
+		
+		WebElement source = driver.findElement(By.xpath("//div[@id='draggable']"));
+		WebElement dest = driver.findElement(By.xpath("//div[@id='droppable']"));
+		
+		Action ddact = act.dragAndDrop(source, dest).build();
+		
+		ddact.perform();
 
         
 	}
