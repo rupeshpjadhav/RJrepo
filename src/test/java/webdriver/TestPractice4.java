@@ -12,6 +12,7 @@ import javax.swing.text.html.HTMLDocument.Iterator;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -67,6 +68,18 @@ public class TestPractice4 {
 		
 		Action ddaction = act.dragAndDrop(source, dest).build();
 		ddaction.perform();
+		
+		//slider
+		WebElement SliderElement = driver.findElement(By.xpath("//h2[normalize-space()='Slider']"));
+		act.scrollToElement(SliderElement);
+		//js.executeScript("arguments[0].scrollIntoView();", SliderElement);
+		
+		
+		WebElement min_slider = driver.findElement(By.xpath("//span[@class='ui-slider-handle ui-corner-all ui-state-default']"));
+		System.out.println(min_slider.getLocation());
+		
+		act.dragAndDropBy(min_slider, 100, 0).perform();
+		System.out.println(min_slider.getLocation());
 		
 
         
