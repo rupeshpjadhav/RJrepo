@@ -65,9 +65,9 @@ public class TestPractice4 {
 		WebElement source = driver.findElement(By.xpath("//div[@id='draggable']"));
 		WebElement dest = driver.findElement(By.xpath("//div[@id='droppable']"));
 		
-		Action ddact = act.dragAndDrop(source, dest).build();
+		Action ddaction = act.dragAndDrop(source, dest).build();
+		ddaction.perform();
 		
-		ddact.perform();
 
         
 	}
