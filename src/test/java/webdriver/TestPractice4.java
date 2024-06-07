@@ -81,7 +81,12 @@ public class TestPractice4 {
 		act.dragAndDropBy(min_slider, 100, 0).perform();
 		System.out.println(min_slider.getLocation());
 		
-
+        // Using JS to click and use sendkeys
+		WebElement nameinput = driver.findElement(By.xpath("//input[@id='name']"));
+		js.executeScript("arguments[0].setAttribute('value','Rupesh J')", nameinput);
+		
+		WebElement newwin = driver.findElement(By.xpath("//button[normalize-space()='New Browser Window']"));
+		js.executeScript("arguments[0].click()", newwin);
         
 	}
 
